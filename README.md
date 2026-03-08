@@ -2,7 +2,7 @@
 
 > DevOps engineer who ships, software architect who builds. Based in Germany. Hire me.
 
-**Status:** 💡 Planning  
+**Status:** ✅ Deployed  
 **Domain:** ✅ alejoespinosa.com  
 **Email:** ✅ Configured  
 
@@ -19,10 +19,11 @@ alejoespinosa.com/
 │   │   ├── about.astro        # About me
 │   │   └── blog/              # Blog posts (optional)
 │   ├── components/
-│   │   ├── Header.astro
-│   │   ├── Footer.astro
-│   │   ├── ProjectCard.astro
-│   │   └── SkillBadge.astro
+│   │   ├── Contact.astro
+│   │   ├── Experience.astro
+│   │   ├── Hero.astro
+│   │   ├── Projects.astro
+│   │   ├── Skills.astro
 │   ├── layouts/
 │   │   └── BaseLayout.astro
 │   ├── content/
@@ -66,8 +67,6 @@ alejoespinosa.com/
 ┌─────────────────────────────────────────────────────────────┐
 │                      Hosting                                │
 │                                                             │
-│  Options:                                                   │
-│  - Cloudflare Pages (fast, easy DNS)                        │
 │  - GitHub Pages (halbardhobby.com already runs there)       │
 │                                                             │
 └─────────────────────────┬───────────────────────────────────┘
@@ -86,15 +85,15 @@ alejoespinosa.com/
 ## MVP Scope (v0.1)
 
 ## In Scope
-- [ ] Hero section with name, title, CTA
-- [ ] About section (2-3 paragraphs)
-- [ ] 3 project cards with descriptions
-- [ ] Skills section (grouped)
-- [ ] Contact section (email, LinkedIn, GitHub)
+- [x] Hero section with name, title, CTA
+- [x] About section (2-3 paragraphs)
+- [x] 3 project cards with descriptions
+- [x] Skills section (grouped)
+- [x] Contact section (email, LinkedIn, GitHub)
 - [ ] Mobile responsive
 - [ ] Dark mode toggle
-- [ ] Resume PDF download
-- [ ] Deploy to Cloudflare Pages or GitHub Pages
+- [x] Resume PDF download
+- [x] Deploy to GitHub Pages
 - [x] Custom domain (alejoespinosa.com)
 
 ### Out of Scope (v1.0+)
