@@ -1,0 +1,89 @@
+---
+const links = [
+  {
+    label: 'Email',
+    href: 'mailto:workwithme@alejoespinosa.com',
+    display: 'workwithme@alejoespinosa.com',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/alejoespinosa',
+    display: 'linkedin.com/in/alejoespinosa',
+  },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/halbardhobby',
+    display: 'github.com/halbardhobby',
+  },
+];
+---
+
+<section id="contact" class="section fade-in delay-5">
+  <h2 class="section-title">Contact</h2>
+  <p class="intro">Interested in working together? Reach out through any of the channels below.</p>
+  <div class="links">
+    {links.map((link) => (
+      <a href={link.href} class="contact-link" target="_blank" rel="noopener noreferrer">
+        <span class="label">{link.label}</span>
+        <span class="value">{link.display}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .intro {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent-teal);
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    min-width: 5rem;
+  }
+
+  .value {
+    font-size: 0.9rem;
+    color: var(--text-body);
+    transition: color 0.2s ease;
+  }
+
+  .contact-link:hover .value {
+    color: var(--text-bright);
+  }
+
+  @media (max-width: 600px) {
+    .contact-link {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+  }
+</style>

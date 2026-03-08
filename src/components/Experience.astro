@@ -1,0 +1,264 @@
+---
+const jobs = [
+  {
+    company: 'sovity GmbH',
+    role: 'DevOps Engineer',
+    period: 'Jul – Dec 2025',
+    location: 'Dortmund, DE',
+    bullets: [
+      'Deployed core product hub to Kubernetes (dev + prod) on Azure using GitHub Actions, Terraform, Terragrunt, RBAC',
+      'Built self-service deployment pipelines reducing lead time from hours to minutes',
+      'Reduced IaC tech debt by auditing and removing redundant Terragrunt modules',
+    ],
+  },
+  {
+    company: 'Globant',
+    role: 'Senior DevOps Engineer',
+    period: 'May 2021 – Nov 2024',
+    location: 'Remote',
+    subtitle: 'Consulting deployment — 4 named clients',
+    clients: [
+      {
+        name: 'HBO Max',
+        detail: 'Service recovery automation on AWS for 70M+ subscriber platform; on-call rotations; authored operational runbooks',
+      },
+      {
+        name: 'Disney Parks',
+        detail: 'Zero-downtime data sync pipelines for US parks (incl. Galaxy\'s Edge); data validation and on-demand production adjustments',
+      },
+      {
+        name: 'Major Fintech (NDA)',
+        detail: 'ArgoCD GitOps on Kubernetes; IaC PR review and automated testing',
+      },
+      {
+        name: 'Healthcare / MedTech',
+        detail: 'Preemptive auto-scaling via queue depth monitoring for medical imaging pipeline (~12 min/request); Terraform state management',
+      },
+    ],
+  },
+  {
+    company: 'Universidad del Rosario',
+    role: 'Lecturer',
+    period: 'Sep 2019 – Jan 2021',
+    location: 'Bogotá, CO',
+    bullets: [
+      'Industry 4.0 course for law students; DevOps/Python/Microservices for government institutions; 150+ students',
+    ],
+  },
+  {
+    company: 'Efecto Studios',
+    role: 'Backend Dev & DevOps Engineer',
+    period: 'Jun 2018 – Jun 2019',
+    location: 'Bogotá, CO',
+    bullets: [
+      'Pioneered CI/CD in Colombian game industry (Jenkins + Unreal Engine 4 + AWS)',
+      'Telemetry integration for Decoherence (released on Steam)',
+    ],
+  },
+  {
+    company: 'INGETEC S.A.',
+    role: 'Innovation Engineer',
+    period: 'Mar – Aug 2017',
+    location: 'Bogotá, CO',
+    bullets: [
+      'Led 3-person team migrating 1,000-employee civil engineering firm to GCP',
+      '40%+ cost reduction achieved',
+    ],
+  },
+];
+---
+
+<section id="experience" class="section fade-in delay-3">
+  <h2 class="section-title">Experience</h2>
+  <div class="timeline">
+    {jobs.map((job) => (
+      <div class="entry">
+        <div class="marker"></div>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="company">{job.company}</h3>
+              <p class="role">{job.role}</p>
+            </div>
+            <div class="meta">
+              <span class="period">{job.period}</span>
+              <span class="location">{job.location}</span>
+            </div>
+          </div>
+
+          {job.subtitle && (
+            <p class="subtitle">{job.subtitle}</p>
+          )}
+
+          {job.clients && (
+            <div class="clients">
+              {job.clients.map((client) => (
+                <div class="client">
+                  <span class="client-name">{client.name}</span>
+                  <p class="client-detail">{client.detail}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {job.bullets && (
+            <ul class="bullets">
+              {job.bullets.map((b) => (
+                <li>{b}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 7px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .entry {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .entry:last-child {
+    margin-bottom: 0;
+  }
+
+  .marker {
+    position: absolute;
+    left: -2rem;
+    top: 1.2rem;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-teal);
+    background: var(--bg-deep);
+    z-index: 1;
+  }
+
+  .entry:first-child .marker {
+    background: var(--accent-teal);
+  }
+
+  .card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .company {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--text-bright);
+    margin-bottom: 0.15rem;
+  }
+
+  .role {
+    font-size: 0.85rem;
+    color: var(--accent-teal);
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+
+  .period {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .location {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 0.75rem;
+  }
+
+  .clients {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .client {
+    padding-left: 1rem;
+    border-left: 2px solid var(--border);
+  }
+
+  .client-name {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--accent-sky);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .client-detail {
+    font-size: 0.85rem;
+    color: var(--text-body);
+    line-height: 1.6;
+  }
+
+  .bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .bullets li {
+    position: relative;
+    padding-left: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 0.35rem;
+  }
+
+  .bullets li::before {
+    content: '~';
+    position: absolute;
+    left: 0;
+    color: var(--accent-teal);
+  }
+
+  @media (max-width: 600px) {
+    .card-header {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .meta {
+      align-items: flex-start;
+    }
+  }
+</style>

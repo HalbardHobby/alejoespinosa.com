@@ -1,0 +1,122 @@
+---
+const projects = [
+  {
+    name: 'Home Lab',
+    description: 'Bare-metal Ubuntu server running Prometheus, Grafana, Pi-hole, Gitea, and media stack via GitOps. Infrastructure version-controlled in GitHub.',
+    tags: ['Ubuntu', 'Prometheus', 'Grafana', 'Pi-hole', 'Gitea', 'GitOps'],
+    link: 'https://github.com/halbardhobby',
+    linkLabel: 'GitHub',
+  },
+  {
+    name: 'Decoherence',
+    description: 'Indie game shipped on Steam. Built CI/CD pipeline (Jenkins + UE4 + AWS) and telemetry from scratch.',
+    tags: ['Jenkins', 'Unreal Engine 4', 'AWS', 'Telemetry', 'Steam'],
+    link: 'https://store.steampowered.com/app/742890/Decoherence/',
+    linkLabel: 'Steam',
+  },
+  {
+    name: 'More coming soon',
+    description: 'New projects are in the works. Stay tuned.',
+    tags: [],
+    placeholder: true,
+  },
+];
+---
+
+<section id="projects" class="section fade-in delay-4">
+  <h2 class="section-title">Projects</h2>
+  <div class="grid">
+    {projects.map((project) => (
+      <div class:list={['card', { placeholder: project.placeholder }]}>
+        <h3 class="project-name">{project.name}</h3>
+        <p class="project-desc">{project.description}</p>
+        {project.tags.length > 0 && (
+          <div class="tags">
+            {project.tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+        {project.link && (
+          <a href={project.link} class="project-link" target="_blank" rel="noopener noreferrer">
+            {project.linkLabel} &rarr;
+          </a>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .card:hover {
+    border-color: var(--accent-teal);
+  }
+
+  .card.placeholder {
+    opacity: 0.4;
+    border-style: dashed;
+    pointer-events: none;
+  }
+
+  .project-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--text-bright);
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    color: var(--text-body);
+    line-height: 1.6;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text-muted);
+  }
+
+  .project-link {
+    font-size: 0.82rem;
+    color: var(--accent-sky);
+    margin-top: auto;
+    transition: color 0.2s ease;
+  }
+
+  .project-link:hover {
+    color: var(--accent-orange);
+  }
+
+  @media (max-width: 600px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,199 @@
+---
+---
+
+<section class="hero fade-in">
+  <div class="scanlines"></div>
+  <div class="hero-content section">
+    <p class="greeting fade-in delay-1">Hello, I'm</p>
+    <h1 class="name fade-in delay-2">
+      <span class="glitch" data-text="Alejandro Espinosa">Alejandro Espinosa</span>
+    </h1>
+    <p class="title fade-in delay-3">DevOps &amp; Platform Engineer</p>
+    <p class="bio fade-in delay-4">
+      10 years building self-service Kubernetes platforms and cloud
+      infrastructure across AWS, GCP, and Azure. Enterprise clients include
+      HBO&nbsp;Max, Disney&nbsp;Parks, Healthcare/MedTech, and major Fintech.
+      Former university lecturer. M.S. Computer Science, Universidad de los Andes.
+    </p>
+    <div class="cta-group fade-in delay-5">
+      <a href="/cv_alejo_espinosa_english_2026.pdf" class="btn btn-primary" download>Download CV (EN)</a>
+      <a href="/cv_alejo_espinosa_deutsch_2026.pdf" class="btn btn-primary" download>Download CV (DE)</a>
+      <a href="#contact" class="btn btn-secondary">Get in touch</a>
+    </div>
+    <span class="badge fade-in delay-6">EU Blue Card &middot; Immediately available</span>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.015) 2px,
+      rgba(255, 255, 255, 0.015) 4px
+    );
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .greeting {
+    font-size: 0.9rem;
+    color: var(--accent-teal);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .name {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  .glitch {
+    position: relative;
+    display: inline-block;
+    color: var(--text-bright);
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .glitch::before {
+    color: var(--accent-sky);
+    animation: glitch-shift 3s infinite linear alternate-reverse;
+    clip-path: inset(0 0 65% 0);
+  }
+
+  .glitch::after {
+    color: var(--accent-teal);
+    animation: glitch-shift 2s infinite linear alternate;
+    clip-path: inset(65% 0 0 0);
+  }
+
+  @keyframes glitch-shift {
+    0%, 90% {
+      transform: translate(0);
+    }
+    92% {
+      transform: translate(-3px, 1px);
+    }
+    94% {
+      transform: translate(3px, -1px);
+    }
+    96% {
+      transform: translate(-2px, -1px);
+    }
+    98% {
+      transform: translate(2px, 1px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+
+  .title {
+    font-size: 1.25rem;
+    color: var(--accent-sky);
+    margin-bottom: 1.5rem;
+  }
+
+  .bio {
+    max-width: 600px;
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--accent-teal);
+    color: var(--bg-deep);
+    border: 1px solid var(--accent-teal);
+  }
+
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--accent-teal);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-bright);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent-orange);
+    color: var(--accent-orange);
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--accent-teal);
+    border-radius: 3px;
+    color: var(--accent-teal);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      min-height: auto;
+      padding: 6rem 0 3rem;
+    }
+
+    .cta-group {
+      flex-direction: column;
+    }
+
+    .btn {
+      text-align: center;
+    }
+  }
+</style>

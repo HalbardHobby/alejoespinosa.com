@@ -1,0 +1,104 @@
+---
+const categories = [
+  {
+    name: 'Platform & IaC',
+    skills: ['Terraform (certified)', 'Terragrunt', 'Ansible'],
+  },
+  {
+    name: 'Containers',
+    skills: ['Kubernetes', 'Docker', 'Helm'],
+  },
+  {
+    name: 'CI/CD & GitOps',
+    skills: ['GitHub Actions', 'ArgoCD', 'Jenkins', 'AWS CodePipeline', 'GCP Cloud Build'],
+  },
+  {
+    name: 'Cloud',
+    skills: ['AWS', 'GCP', 'Azure'],
+  },
+  {
+    name: 'Observability',
+    skills: ['Prometheus', 'Grafana', 'CloudWatch', 'Datadog', 'SLO/SLI'],
+  },
+  {
+    name: 'Security',
+    skills: ['Container security', 'RBAC', 'Secrets management', 'GDPR-aware infra'],
+  },
+  {
+    name: 'Programming',
+    skills: ['Python', 'Go', 'Bash', 'JavaScript', 'SQL'],
+  },
+  {
+    name: 'Systems',
+    skills: ['Linux', 'Systemd', 'DNS', 'Load balancing'],
+  },
+];
+---
+
+<section id="skills" class="section fade-in delay-2">
+  <h2 class="section-title">Skills</h2>
+  <div class="grid">
+    {categories.map((cat) => (
+      <div class="category">
+        <h3 class="category-name">{cat.name}</h3>
+        <div class="badges">
+          {cat.skills.map((skill) => (
+            <span class="badge">{skill}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .category {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+
+  .category-name {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .badge {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    padding: 0.3rem 0.6rem;
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text-body);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .badge:hover {
+    border-color: var(--accent-sky);
+    color: var(--text-bright);
+  }
+
+  @media (max-width: 600px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
